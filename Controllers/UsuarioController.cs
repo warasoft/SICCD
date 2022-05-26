@@ -35,12 +35,12 @@ namespace SICCD.Controllers
                 return View(modelo);
             }
 
-            var resultado = await signInManager.PasswordSignInAsync(modelo.Email,
+            var resultado = await signInManager.PasswordSignInAsync(modelo.Nombre,
                 modelo.Password, modelo.Recuerdame, lockoutOnFailure: false);
 
             if (resultado.Succeeded)
             {
-                return RedirectToAction("Index", "Transacciones");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -53,7 +53,7 @@ namespace SICCD.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
-            return RedirectToAction("Index", "Transacciones");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

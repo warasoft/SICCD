@@ -16303,6 +16303,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\j\\source\\repos\\SICCD\\SICCD\\Views\\Usuarios\\Login.cshtml",
+      "TargetPath": "Views\\Usuarios\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\j\\source\\repos\\SICCD\\SICCD\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -16310,6 +16315,11 @@
     {
       "FilePath": "c:\\Users\\j\\source\\repos\\SICCD\\SICCD\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\j\\source\\repos\\SICCD\\SICCD\\Views\\Usuarios\\_Layout.cshtml",
+      "TargetPath": "Views\\Usuarios\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -5,7 +5,7 @@ namespace SICCD.Models
     public class LoginViewModel
     {
         [Required(ErrorMessage = "El campo {0} es requerido")]
-        public string Email { get; set; }
+        public string Nombre { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [DataType(DataType.Password)]

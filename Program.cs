@@ -1,6 +1,6 @@
 //AGREGADO VER CADA UNO
 using SICCD.Models;
-//using SICCD.Servicios;
+using SICCD.Servicios;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -20,8 +20,27 @@ builder.Services.AddControllersWithViews(opciones =>
     opciones.Filters.Add(new AuthorizeFilter(politicaUsuariosAutenticados));
 });
 //VER
+builder.Services.AddTransient<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<SignInManager<Usuario>>();
 
+builder.Services.AddIdentityCore<Usuario>(opciones =>
+{
+    opciones.Password.RequireDigit = false;
+    opciones.Password.RequireLowercase = false;
+    opciones.Password.RequireUppercase = false;
+    opciones.Password.RequireNonAlphanumeric = false;
+});
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
+}).AddCookie(IdentityConstants.ApplicationScheme, opciones =>
+{
+    opciones.LoginPath = "/Usuarios/Login";
+});
 
 var app = builder.Build();
 
@@ -39,6 +58,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
