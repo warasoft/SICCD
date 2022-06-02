@@ -9,9 +9,6 @@ namespace SICCD.Models
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        [Display(Name = "Recuérdame")]
-        public bool Recuerdame { get; set; }
+        public string Clave { get; set; }
     }
 }
